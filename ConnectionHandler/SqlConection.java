@@ -1,13 +1,12 @@
 package ConnectionHandler;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
-import Comun.Metodos;
+import Exception.ExHandler;
 
 /**
  * @author Nicolas
@@ -19,7 +18,8 @@ import Comun.Metodos;
 public class SqlConection {
 	private boolean debug = false;
 	
-	Metodos met = new Metodos();
+	ExHandler met = new ExHandler(); 
+	
 	private String url,username,password;	
 	private Connection con;
 	public Statement st;
