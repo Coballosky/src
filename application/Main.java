@@ -26,7 +26,9 @@ import Comun.Setup;
  */
 
 public class Main extends Application {
-	private String path = "c://POO//SqlData.txt" ,path_Persona = "c://POO//Persona.txt",mainPath = "c://POO";
+	private String path = "c://POO//SqlData.txt";
+	private String path_Persona = "c://POO//Persona.txt";
+	private String mainPath = "c://POO";
 	Metodos met = new Metodos();
 	
 	@Override

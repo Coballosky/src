@@ -8,35 +8,35 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Setup {
-private String mainPath = "c://POO",path = "c://POO//SqlData.txt";
+private String mainPath = "c:\\POO";
+private String path = "c:POO\\SqlData.txt";
 Metodos met = new Metodos();
 	
 	public void SetupCarpeta() {
 		boolean j = false ;
 		File carpetaRoot = new File(this.mainPath);
 		if (!carpetaRoot.exists()) {
-		try {
-		j= new File(this.mainPath).mkdir();
-		}catch(Exception ex) {
-			met.ShowException(ex);
-		}
-		if (j) {
-			System.out.println("carpeta del programa creada");
-		}
+			try {
+			j= new File(this.mainPath).mkdir();
+			}catch(Exception ex) {
+				met.ShowException(ex);
+			}
+			if (j) {
+				System.out.println("carpeta del programa creada");
+			}
 		}
 	}
 	public void SetupSql() {
-		File tmpDir = new File(this.path);
+		File tmpDir = new File(mainPath);
 		if (!tmpDir.exists()) {
 			try {
-				Stage ventanaSQL = new Stage();
-				Parent sql = FXMLLoader.load(getClass().getResource("/Views/ConfigSQL.fxml"));
-				Scene escena = new Scene(sql);
-				escena.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-				ventanaSQL.setScene(escena);
-				ventanaSQL.showAndWait();
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/ConfigSQL.fxml&quot"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1));  
+                stage.show();
 				}catch(Exception ex) {
-				  met.ShowException(ex);
+					met.ShowException(ex);
 				}
 		}
 	}
