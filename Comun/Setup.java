@@ -1,6 +1,7 @@
 package Comun;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -14,25 +15,34 @@ import javafx.stage.Stage;
 
 
 public class Setup {
-	
-private String mainPath = "c://POO",path = "c://POO//SqlData.txt";
-private String path_Persona = "c://POO//Persona.txt";
+private boolean debug = false;
+
 
 ExHandler met = new ExHandler();
+DirAndPaths dir = new DirAndPaths();
 
-	public void CheckSetup() {
+	public void CheckSetup() throws FileNotFoundException {
 		
 		SetupCarpeta();
 		SetupSql();
-		
+		// dir.getDB()
 		
 	}
+	
+	public void DescargaSQL() {
+		
+		DescargaPersonas();
+		
+	}
+	
+	
+	
 	public void SetupCarpeta() {
 		boolean j = false ;
-		File carpetaRoot = new File(this.mainPath);
+		File carpetaRoot = new File(dir.getPathProgram());
 		if (!carpetaRoot.exists()) {
 		try {
-		j= new File(this.mainPath).mkdir();
+		j= new File(this.dir.getPathProgram()).mkdir();
 		}catch(Exception ex) {
 			System.out.println("Error en la creacion de la carpeta del programa");
 			met.ShowException(ex);
@@ -44,8 +54,8 @@ ExHandler met = new ExHandler();
 
 	}
 	public void SetupSql() {
-		File tmpDir = new File(this.path);
-		if (tmpDir.exists()) {
+		File tmpDir = new File(dir.getPathSql());
+		if (!tmpDir.exists()) {
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/ConfigSQL.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
@@ -60,24 +70,16 @@ ExHandler met = new ExHandler();
 	
 	
 	
-	
-	public void DescargaSQL() {
+	public void DescargaPersonas() {
+		
 		SqlConection SQL = new SqlConection();
-		File Per = new File(this.path_Persona);
-		if (Per.exists() ) {
-			try {
-				SQL.DescargarPersonas();
-			} catch (SQLException | IOException ex) {
-				met.ShowException(ex);
-			}
-		}else {
-			
-			System.out.println("No se encontro el archivo");
-			try {
-				SQL.DescargarPersonas();
-			} catch (SQLException | IOException ex) {
-				met.ShowException(ex);
-			}
+		try {
+			SQL.DescargarPersonas();
+		} catch (SQLException | IOException e) {
+			if (this.debug) { System.out.println("Excepcion al llamar la funcion Descargar Personas de SQL"); } 
+			met.ShowException(e);
 		}
+		
 	}
+	
 }

@@ -4,6 +4,7 @@ import java.io.*;
 
 
 public class Metodos {
+	
 	public boolean validarRut(String vrut, String vverificador) 
     { 
         boolean flag = false; 
@@ -86,13 +87,6 @@ public class Metodos {
             	System.out.println(e);
             }
         }
-	}
-
-	
-	
-	/**           Exceptions  **/
-
-
-	
+	}	
 	
 }
