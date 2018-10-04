@@ -8,20 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
 import javafx.stage.Stage;
 
 public class MenuController {
 	@FXML private Button btnExit;
-	@FXML private SplitMenuButton smbAdd;
+	@FXML private Button bAdd;
 	@FXML private MenuItem libro;
 	
 	public void exit(ActionEvent event) throws Exception {
 		Platform.exit();
-	}
-
-	public void slLibro(ActionEvent event) {
-		
 	}
 	
 	public void agregarLibro(ActionEvent event) throws Exception{
@@ -34,5 +29,7 @@ public class MenuController {
 		stage.setScene(scene);
 		stage.show();
 		
+		//LLamar a evento que pasa la biblioteca entre ventanas
+		//Implementar porfavorsito
 	}
 }

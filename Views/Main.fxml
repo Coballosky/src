@@ -19,11 +19,6 @@
             <Font size="19.0" />
          </font>
       </Text>
-      <SplitMenuButton fx:id="smbAdd" layoutX="53.0" layoutY="125.0" mnemonicParsing="false" onAction="#agregarLibro" text="Agregar">
-        <items>
-          <MenuItem fx:id="mbLibro" mnemonicParsing="false" onAction="#slLibro" onMenuValidation="#agregarLibro" text="Libro" />
-          <MenuItem fx:id="mbConsulta" mnemonicParsing="false" text="Consulta" />
-        </items>
-      </SplitMenuButton>
+      <Button fx:id="bAdd" layoutX="46.0" layoutY="128.0" mnemonicParsing="false" onAction="#agregarLibro" text="Agregar un elemento" />
    </children>
 </AnchorPane>

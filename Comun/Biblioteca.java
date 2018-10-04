@@ -72,7 +72,8 @@ public class Biblioteca {
 	}
 	
 	public boolean agregarLibro(Libro nuevoLibro) {
-		if(buscarLibro(nuevoLibro.getTitulo()) == null) {
+		String[] codigo = nuevoLibro.getCode().split("-");
+		if(buscarLibro(codigo[0],Integer.parseInt(codigo[1])) == null) {
 			libros.add(nuevoLibro);
 			return true;
 		}
