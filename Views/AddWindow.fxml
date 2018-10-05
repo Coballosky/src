@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane fx:id="tabAdd" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddController">
+    <tabs>
+        <Tab text=" Libro ">
+            <content>
+                <fx:include fx:id="addBookTab" source="AddLibro.fxml"/>
+            </content>
+        </Tab>
+        <Tab text=" Usuario ">
+            <content>
+                <fx:include fx:id="addUserTab" source="AgregarPersona.fxml"/>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

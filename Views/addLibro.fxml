@@ -1,36 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.*?>
 
-
-<AnchorPane prefHeight="323.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Text layoutX="12.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Libro" />
-      <Text layoutX="14.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria" />
-      <Text layoutX="14.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
-      <TextField layoutX="115.0" layoutY="25.0" />
-      <MenuButton layoutX="115.0" layoutY="63.0" mnemonicParsing="false" text="MenuButton">
-        <items>
-          <MenuItem mnemonicParsing="false" text="MAT" />
-          <MenuItem mnemonicParsing="false" text="HIS" />
-            <MenuItem mnemonicParsing="false" text="FIS" />
-            <MenuItem mnemonicParsing="false" text="PRO" />
-            <MenuItem mnemonicParsing="false" text="ECO" />
-        </items>
-      </MenuButton>
-      <RadioButton layoutX="115.0" layoutY="104.0" mnemonicParsing="false" text="Nuevo" />
-      <Text layoutX="14.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor" />
-      <TextField layoutX="115.0" layoutY="136.0" />
-      <Text layoutX="12.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" />
-      <MenuButton layoutX="115.0" layoutY="180.0" mnemonicParsing="false" text="MenuButton">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
-   </children>
+<AnchorPane fx:id="addBookTab" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddBookController">
+	<children>
+		<Text layoutX="116.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Alfabético :" />
+		<Text layoutX="28.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo" />
+		<TextField fx:id="txtTitulo" layoutX="77.0" layoutY="58.0" prefHeight="31.0" prefWidth="475.0" />
+		<Text layoutX="27.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor" />
+        <TextField fx:id="txtAutor" layoutX="77.0" layoutY="108.0" prefHeight="31.0" prefWidth="164.0" />
+        <Text layoutX="23.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+        <Text layoutX="27.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tema" />
+      <Label fx:id="lblTema" layoutX="386.0" layoutY="18.0" prefHeight="21.0" prefWidth="95.0" text="&quot;Tema&quot;" />
+      <ComboBox fx:id="cbTema" layoutX="77.0" layoutY="149.0" onAction="#updCodeTema" prefWidth="150.0" promptText="N/A" visibleRowCount="10">
+      	<items>
+	        <FXCollections fx:factory="observableArrayList">
+	            <String fx:value="MAT" />
+	            <String fx:value="FIS" />
+	            <String fx:value="QUI" />
+	            <String fx:value="LEN" />
+	            <String fx:value="ING" />
+	            <String fx:value="INF" />
+	            <String fx:value="MEC" />
+	            <String fx:value="ELE" />
+	            <String fx:value="ECO" />
+	            <String fx:value="OTR" />
+	        </FXCollections>
+	    </items>
+	  </ComboBox>
+      <Label fx:id="lblAlfa" layoutX="284.0" layoutY="18.0" text="XXX" />
+      <Label fx:id="lblNum" layoutX="324.0" layoutY="18.0" text="0000" />
+      <ComboBox fx:id="cbEstado" layoutX="77.0" layoutY="201.0" prefWidth="150.0" promptText="Estado">
+      	<items>
+      		<FXCollections fx:factory="observableArrayList">
+      			<String fx:value="Nuevo" />
+      			<String fx:value="Buen Estado" />
+      			<String fx:value="Decente" /> 
+      		</FXCollections>
+   		</items>
+  	  </ComboBox>
+      <ComboBox fx:id="cbDisp" layoutX="124.0" layoutY="251.0" prefWidth="150.0">
+      	<items>
+      		<FXCollections fx:factory="observableArrayList">
+      			<String fx:value="Pregrado" />
+      			<String fx:value="Tesis" />
+      			<String fx:value="Postgrado" />
+      			<String fx:value="Otro" />
+   			</FXCollections>
+      	</items>
+      </ComboBox>
+        <Button layoutX="93.0" layoutY="326.0" mnemonicParsing="false" onAction="#agregarLibro" text="Agregar" />
+      <Text layoutX="315.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" />
+      <Text layoutX="19.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Libro" />
+      <TextArea fx:id="areaInfo" editable="false" focusTraversable="false" layoutX="311.0" layoutY="107.0" opacity="0.81" prefHeight="234.0" prefWidth="268.0" />
+	</children>
 </AnchorPane>

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 import Exception.ExHandler;
 import Comun.Setup;
+import Controllers.MainController;
 
 /**
  * 
@@ -42,6 +43,7 @@ public class Main extends Application {
 			} catch(Exception ex) {
 				met.ShowException(ex);
 			}
+			
 	}
 	
 	public void closeLogin(Stage primaryStage) {

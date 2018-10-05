@@ -79,8 +79,8 @@ public class Libro {
 	
 	//Metodos
 	public String infoLibro() {
-		String info = getTema() + " " + getCode() + "|" + getTitulo() + ", " + getAutor() + 
-				"\tDias de Renta Permitidos: " + getDias() + ", Estado: " + getEstado() + ", Rentado: ";
+		String info = "Tema: " + getTema() + "\n" + getCode() + " | " + getTitulo() + "\nAutor: " + getAutor() + 
+				"\nDias de Renta Permitidos: " + getDias() + "\nEstado: " + getEstado() + "\nRentado: ";
 		
 		if(getRentado() == true) {
 			info = info + "SI";
